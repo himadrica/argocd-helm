@@ -10,6 +10,10 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 kubectl get svc -n argocd
 kubectl port-forward svc/argocd-server 8282:443 -n argocd
 ```
+You can access argocd UI via
+```
+https://127.0.0.1:8282
+```
 ## login with admin user and below token (as in documentation):
 
 ```
@@ -26,5 +30,10 @@ kubectl apply -f application.yaml
 ## accessing app using port forward
 
 ```
-kubectl port-forward -n helm-chart svc/nginxservice 80:80
+kubectl port-forward -n helm-chart svc/nginxservice 8585:80
+```
+
+app link to access:
+```
+http://127.0.0.1:8585/
 ```
