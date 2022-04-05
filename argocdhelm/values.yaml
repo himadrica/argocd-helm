@@ -1,0 +1,14 @@
+replicaCount: 3
+name: myapp-argo
+web:
+  image: nginx
+  name: webnginx
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+service:
+  name: nginxservice
+  protocol: TCP
+  type: NodePort
+  port: 80
