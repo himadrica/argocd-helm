@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myhelm-argo-app
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/himadrica/argocd-helm
+    targetRevision: HEAD
+    path: argocdhelm
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: helm-chart
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
